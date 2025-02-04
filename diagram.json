@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "author": "DIEGO",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": 15.95, "left": 22.75, "attrs": {} },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 85.6,
+        "left": -123.4,
+        "rotate": 270,
+        "attrs": { "color": "limegreen" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": 114.4,
+        "left": -123.4,
+        "rotate": 270,
+        "attrs": { "color": "blue" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 143.2,
+        "left": -123.4,
+        "rotate": 270,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 99.95,
+        "left": -48,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 128.75,
+        "left": -57.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 147.95,
+        "left": -67.2,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 15.8,
+        "left": -115.2,
+        "attrs": { "color": "green" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "led1:A", "r1:1", "green", [ "v0" ] ],
+      [ "pico:GP12", "r2:2", "green", [ "h0" ] ],
+      [ "pico:GP13", "r3:2", "green", [ "h-38.4", "v38.44" ] ],
+      [ "led2:A", "r2:1", "green", [ "v0" ] ],
+      [ "led3:A", "r3:1", "green", [ "v0" ] ],
+      [ "pico:GP5", "btn1:2.r", "green", [ "h-38.4", "v-38.4" ] ],
+      [ "pico:GND.1", "btn1:1.r", "black", [ "h-19.2", "v-19.2" ] ],
+      [ "pico:GP11", "r1:2", "green", [ "h0" ] ],
+      [ "pico:GND.4", "led3:C", "black", [ "h-105.6", "v-19.16" ] ],
+      [ "pico:GND.4", "led2:C", "black", [ "h-105.6", "v-47.96", "h0" ] ],
+      [ "pico:GND.4", "led1:C", "black", [ "h-105.6", "v0.04" ] ]
+    ],
+    "serialMonitor": { "display": "always", "newline": "lf" },
+    "dependencies": {}
+  }
